@@ -1,10 +1,9 @@
 # Scorpius_Rover
 Desarrollo del proyecto del rover Scorpius.
 
-Descripción del proyecto:
-  Este proyecto consiste en el desarrollo de un robot hexápodo rover controlado por Arduino, diseñado para recolectar datos ambientales en terrenos a investigar. A diferencia de los rovers tradicionales que utilizan ruedas, este robot emplea 6 patas para sortear obstáculos y moverse eficientemente en superficies irregulares. El rover está equipado con sensores de ultrasonido, humedad y temperatura, cuyos datos se visualizan en tiempo real en una aplicación móvil. Además, el robot puede ser controlado de forma remota para realizar tareas como caminar, girar y ajustar la altura de su sensor de humedad (que se encuentra en un aguijón).
+Descripción del proyecto: Este proyecto consiste en el desarrollo de un robot hexápodo rover controlado por Arduino, diseñado para recolectar datos ambientales en terrenos a investigar. A diferencia de los rovers tradicionales que utilizan ruedas, este robot emplea 6 patas para sortear obstáculos y moverse eficientemente en superficies irregulares. El rover está equipado con sensores de ultrasonido, humedad y temperatura, cuyos datos se visualizan en tiempo real en una aplicación móvil. Además, el robot puede ser controlado de forma remota para realizar tareas como caminar, girar y ajustar la altura de su sensor de humedad (que se encuentra en un aguijón).
 
-Tecnologías utilizadas:
+Tecnologías utilizadas: \n
   Se utilizaron las siguientes herramientas:
    - MIT App Inventor 2.
    - TinkerCad.

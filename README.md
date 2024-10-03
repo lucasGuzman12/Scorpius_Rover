@@ -32,5 +32,5 @@ Este proyecto consiste en el desarrollo de un robot hexápodo rover controlado p
 - Una vez terminados los pasos anteriores, dar energía al rover para encenderlo, abrir la aplicación descargada y seguir los pasos allí indicados para realizar la conexión Bluetooth con el rover.
 - Ahora podrá controlar al rover para realizar exploraciones!
 
-# Licencia:
+# Licencias:
 - MIT.

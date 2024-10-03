@@ -1,10 +1,10 @@
 # Scorpius_Rover
 Desarrollo del proyecto del rover Scorpius.
 
-Descripción del proyecto: Este proyecto consiste en el desarrollo de un robot hexápodo rover controlado por Arduino, diseñado para recolectar datos ambientales en terrenos a investigar. A diferencia de los rovers tradicionales que utilizan ruedas, este robot emplea 6 patas para sortear obstáculos y moverse eficientemente en superficies irregulares. El rover está equipado con sensores de ultrasonido, humedad y temperatura, cuyos datos se visualizan en tiempo real en una aplicación móvil. Además, el robot puede ser controlado de forma remota para realizar tareas como caminar, girar y ajustar la altura de su sensor de humedad (que se encuentra en un aguijón).
+# Descripción del proyecto:
+Este proyecto consiste en el desarrollo de un robot hexápodo rover controlado por Arduino, diseñado para recolectar datos ambientales en terrenos a investigar. A diferencia de los rovers tradicionales que utilizan ruedas, este robot emplea 6 patas para sortear obstáculos y moverse eficientemente en superficies irregulares. El rover está equipado con sensores de ultrasonido, humedad y temperatura, cuyos datos se visualizan en tiempo real en una aplicación móvil. Además, el robot puede ser controlado de forma remota para realizar tareas como caminar, girar y ajustar la altura de su sensor de humedad (que se encuentra en un aguijón).
 
-Tecnologías utilizadas:
-
+# Tecnologías utilizadas:
   Se utilizaron las siguientes herramientas:
    - MIT App Inventor 2.
    - TinkerCad.
@@ -15,10 +15,10 @@ Tecnologías utilizadas:
    - C++.
    - Lenguaje de bloques de App Inventor.
 
-Contenido del repositorio:
+# Contenido del repositorio:
 
 
-Guía de instalación:
+# Guía de instalación:
 - En primer lugar se deberán imprimir en 3D las piezas de la carpeta "Modelos para Impresion".
 - Conseguir los materiales indicados en la carpeta de "Materiales utilizados".
 - Centrar todos los servomotores utilizando el código "centrador_de_servos.ino" provisto en este repositorio.
@@ -32,4 +32,5 @@ Guía de instalación:
 - Una vez terminados los pasos anteriores, dar energía al rover para encenderlo, abrir la aplicación descargada y seguir los pasos allí indicados para realizar la conexión Bluetooth con el rover.
 - Ahora podrá controlar al rover para realizar exploraciones!
 
-Licencia: MIT.
+# Licencia:
+- MIT.

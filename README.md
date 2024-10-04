@@ -21,8 +21,8 @@ Este proyecto consiste en el desarrollo de un robot hexápodo rover controlado p
 - Diseño:
   * Esqueema de conexiones
   * Modelo 3D:
-    . Para impresión
-    . Para visualización
+    - Para impresión
+    - Para visualización
 - Informe
 - Presentación
 - Software:

@@ -1,4 +1,4 @@
-# Scorpius_Rover
+# SCORPIUS ROVER
 Desarrollo del proyecto del rover Scorpius.
 
 # Descripción del proyecto:

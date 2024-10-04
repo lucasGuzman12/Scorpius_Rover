@@ -16,7 +16,18 @@ Este proyecto consiste en el desarrollo de un robot hexápodo rover controlado p
    - Lenguaje de bloques de App Inventor.
 
 # Contenido del repositorio:
-
+- Anteproyecto
+- App
+- Diseño:
+  * Esqueema de conexiones
+  * Modelo 3D:
+    . Para impresión
+    . Para visualización
+- Informe
+- Presentación
+- Software:
+  * Arduinos
+- Tutorial
 
 # Guía de instalación:
 - En primer lugar se deberán imprimir en 3D las piezas de la carpeta "Modelos para Impresion".

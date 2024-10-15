@@ -45,3 +45,8 @@ Este proyecto consiste en el desarrollo de un robot hexápodo rover controlado p
 
 # Licencias:
 - MIT.
+
+# Creadores del prototipo:
+  - Guzman Dominguez, Lucas Santiago
+  - Roldan, Tiago Ignacio
+  - Cenci Heredia, Facundo Ariel

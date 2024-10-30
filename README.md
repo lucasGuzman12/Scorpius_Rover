@@ -18,6 +18,8 @@ Este proyecto consiste en el desarrollo de un robot hexápodo rover controlado p
 # Contenido del repositorio:
 - Anteproyecto
 - App
+  * Para descarga
+  * Proyecto MIT App Inventor
 - Diseño:
   * Esquema de conexiones
   * Modelo 3D:

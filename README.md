@@ -49,6 +49,6 @@ Este proyecto consiste en el desarrollo de un robot hexápodo rover controlado p
 - MIT.
 
 # Equipo de trabajo:
-- Cenci Heredia Facundo Ariel.
-- Guzmán Domínguez Lucas Santiago.
-- Roldán Tiago.
+- Cenci Heredia, Facundo Ariel.
+- Guzmán Domínguez, Lucas Santiago.
+- Roldán, Tiago.

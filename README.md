@@ -31,8 +31,8 @@ Este proyecto consiste en el desarrollo de un robot hexápodo rover controlado p
 - Tutorial
 
 # Guía de instalación:
-- En primer lugar se deberán imprimir en 3D las piezas de la carpeta "Modelos para Impresion".
-- Conseguir los materiales indicados en la carpeta de "Materiales utilizados".
+- En primer lugar se deberá imprimir en 3D la pieza de la carpeta "Para Impresión" y recortar las piezas de cartón prensado indicadas en el modelo 3D y tutorial.
+- Conseguir los materiales indicados en el tutorial.
 - Centrar todos los servomotores utilizando el código "centrador_de_servos.ino" provisto en este repositorio.
 - Tomar como regerencia el modelo 3D de la carpeta "Diseño 3D" (utilizar el visor 3D de su preferencia para visualizarlo), y pegar los servos como está indicado en dicho modelo, es recomendable utilizar silicona caliente para mayor facilidad de manipulación.
 - Utilizando también silicona caliente, pegar las patas impresas previamente respetando el diseño 3D provisto, hacer lo mismo con la unión de los servos al chásis y el aguijón.

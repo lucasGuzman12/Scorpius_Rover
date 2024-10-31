@@ -27,8 +27,7 @@ Este proyecto consiste en el desarrollo de un robot hexápodo rover controlado p
     - Para visualización
 - Informe
 - Presentación
-- Software:
-  * Arduinos
+- Software
 - Tutorial
 
 # Guía de instalación:

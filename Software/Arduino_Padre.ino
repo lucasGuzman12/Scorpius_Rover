@@ -15,18 +15,18 @@ int VELOCIDAD_PATAS = 20;
 //Las patas estan enumeradas en sentido horario
 
 //Posiciones de servos de las patas
-int pos_rot_1 = 90;
-int pos_up_1 = 90;
-int pos_rot_2 = 90;
-int pos_up_2 = 90;
-int pos_rot_3 = 90;
-int pos_up_3 = 90;
-int pos_rot_4 = 90;
-int pos_up_4 = 90;
-int pos_rot_5 = 90;
-int pos_up_5 = 90;
-int pos_rot_6 = 90;
-int pos_up_6 = 90;
+int pos_rot_1 = 0;
+int pos_up_1 = 0;
+int pos_rot_2 = 0;
+int pos_up_2 = 0;
+int pos_rot_3 = 0;
+int pos_up_3 = 0;
+int pos_rot_4 = 0;
+int pos_up_4 = 0;
+int pos_rot_5 = 0;
+int pos_up_5 = 0;
+int pos_rot_6 = 0;
+int pos_up_6 = 0;
 
 //PATA 1
 Servo rot_1;
@@ -50,30 +50,40 @@ Servo up_6;
 void DEF_POS() {
   
   rot_1.write(90);
-  up_1.write(90);
+  up_1.write(70);
+
   rot_2.write(90);
-  up_2.write(90);
+  up_2.write(70);
+
   rot_3.write(90);
-  up_3.write(90);
+  up_3.write(70);
+
   rot_4.write(90);
-  up_4.write(90);
+  up_4.write(110);
+
   rot_5.write(90);
-  up_5.write(90);
+  up_5.write(110);
+
   rot_6.write(90);
-  up_6.write(90);
+  up_6.write(110);
 
   pos_rot_1 = 90;
-  pos_up_1 = 90;
+  pos_up_1 = 70;
+
   pos_rot_2 = 90;
-  pos_up_2 = 90;
+  pos_up_2 = 70;
+
   pos_rot_3 = 90;
-  pos_up_3 = 90;
+  pos_up_3 = 70;
+
   pos_rot_4 = 90;
-  pos_up_4 = 90;
+  pos_up_4 = 110;
+
   pos_rot_5 = 90;
-  pos_up_5 = 90;
+  pos_up_5 = 110;
+
   pos_rot_6 = 90;
-  pos_up_6 = 90;
+  pos_up_6 = 110;
   
   delay(1000);
 }
@@ -127,7 +137,7 @@ void CAMINAR() {
     delay(VELOCIDAD_PATAS);
   }
   //Baja grupo 1
-  for (int i = pos_up_1; i > 90; i -= 1) {
+  for (int i = pos_up_1; i > 70; i -= 1) {
     pos_up_1 --;
     pos_up_3 --;
     pos_up_5 ++;
@@ -164,7 +174,7 @@ void CAMINAR() {
     delay(VELOCIDAD_PATAS);
   }
   //Baja grupo 2
-  for (int i = pos_up_2; i > 90; i -= 1) { // pos_up_2 es la pata directora
+  for (int i = pos_up_2; i > 70; i -= 1) { // pos_up_2 es la pata directora
     pos_up_2 --;
     pos_up_4 ++;
     pos_up_6 ++;
@@ -203,7 +213,7 @@ void RETROCEDER() {
     delay(VELOCIDAD_PATAS);
   }
   //Baja grupo 1
-  for (int i = pos_up_1; i > 90; i -= 1) {
+  for (int i = pos_up_1; i > 70; i -= 1) {
     pos_up_1 --;
     pos_up_3 --;
     pos_up_5 ++;
@@ -240,7 +250,7 @@ void RETROCEDER() {
     delay(VELOCIDAD_PATAS);
   }
   //Baja grupo 2
-  for (int i = pos_up_2; i > 90; i -= 1) { // pos_up_2 es la pata directora
+  for (int i = pos_up_2; i > 70; i -= 1) { // pos_up_2 es la pata directora
     pos_up_2 --;
     pos_up_4 ++;
     pos_up_6 ++;
@@ -279,7 +289,7 @@ void IZQUIERDA() {
     delay(VELOCIDAD_PATAS);
   }
   //Baja grupo 1
-  for (int i = pos_up_1; i > 90; i -= 1) {
+  for (int i = pos_up_1; i > 70; i -= 1) {
     pos_up_1 --;
     pos_up_3 --;
     pos_up_5 ++;
@@ -316,7 +326,7 @@ void IZQUIERDA() {
     delay(VELOCIDAD_PATAS);
   }
   //Baja grupo 2
-  for (int i = pos_up_2; i > 90; i -= 1) { // pos_up_2 es la pata directora
+  for (int i = pos_up_2; i > 70; i -= 1) { // pos_up_2 es la pata directora
     pos_up_2 --;
     pos_up_4 ++;
     pos_up_6 ++;
@@ -355,7 +365,7 @@ void DERECHA() {
     delay(VELOCIDAD_PATAS);
   }
   //Baja grupo 1
-  for (int i = pos_up_1; i > 90; i -= 1) {
+  for (int i = pos_up_1; i > 70; i -= 1) {
     pos_up_1 --;
     pos_up_3 --;
     pos_up_5 ++;
@@ -392,7 +402,7 @@ void DERECHA() {
     delay(VELOCIDAD_PATAS);
   }
   //Baja grupo 2
-  for (int i = pos_up_2; i > 90; i -= 1) { // pos_up_2 es la pata directora
+  for (int i = pos_up_2; i > 70; i -= 1) { // pos_up_2 es la pata directora
     pos_up_2 --;
     pos_up_4 ++;
     pos_up_6 ++;
@@ -502,7 +512,7 @@ void loop()
       CAMINAR_ATRAS = false;
       CAMINAR_IZQUIERDA = false;
     }
-    else {
+    else if (input == "stop"){
       // Resetea las variables
       Serial.println("stop");
       CAMINAR_ADELANTE = false;

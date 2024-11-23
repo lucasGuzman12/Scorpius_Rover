@@ -1,5 +1,5 @@
 //BUZER----------------------------------------------------
-// Definición de notas en Hertz (primera octava)
+// Definicion de notas en Hertz (primera octava)
 #define DO 261
 #define DO_S 277
 #define RE 294
@@ -12,7 +12,7 @@
 #define LA 440
 #define LA_S 466
 #define SI 494
-// Definición de notas en Hertz (segunda octava)
+// Definicion de notas en Hertz (segunda octava)
 #define DO2 523
 #define DO_S2 554
 #define RE2 587
@@ -25,7 +25,7 @@
 #define LA2 880
 #define LA_S2 932
 #define SI2 988
-// Definición de figuras musicales (relativo a la negra)
+// Definicion de figuras musicales (relativo a la negra)
 #define REDONDA 4
 #define BLANCA 2
 #define NEGRA 1
@@ -36,8 +36,6 @@
 
 const int buzzerPin = 11;
 int tempo = 615;
-
-
 
 //SENSORES------------------------------------------------
 #include <DHT.h>
@@ -57,15 +55,15 @@ DHT dht(DHTPIN, DHTTYPE);
 
 
 //FUNCIONES PARA EL BUZZER -------------------------------
-// Función para sonar una nota en el buzzer con o sin estacato y con o sin puntillo
+// Funcion para sonar una nota en el buzzer con o sin estacato y con o sin puntillo
 void sonarNota(int frecuencia, float figura, bool estacato, bool puntillo) {
-  // Calcula la duración total en función de la figura musical
+  // Calcula la duracion total en funcion de la figura musical
   int duracion = tempo * figura;
-  // Si el puntillo está activado, incrementa la duración en un 50%
+  // Si el puntillo esta activado, incrementa la duracion en un 50%
   if (puntillo) {
     duracion += duracion / 2;
   }
-  // Si el estacato está activado, se suena la nota por la mitad del tiempo
+  // Si el estacato esta activado, se suena la nota por la mitad del tiempo
   if (estacato) {
     int estacatoDuracion = duracion / 2; // El estacato suena la mitad del tiempo de la nota
     tone(buzzerPin, frecuencia);         // Emitir la nota
@@ -80,9 +78,8 @@ void sonarNota(int frecuencia, float figura, bool estacato, bool puntillo) {
     delay(tempo / 2);                    // Pausa estándar entre notas
   }
 }
-// Funcion con la cancion WELLERMAN de Nathan Evans
+// Funcion para la cancion WELLERMAN de Nathan Evans
 void WELLERMAN() {
-  delay(2000);
   //Compas 1
   sonarNota(SOL, CORCHEA, true, false);
   //Compas 2
@@ -158,14 +155,13 @@ void WELLERMAN() {
   sonarNota(RE_S, CORCHEA, true, false);
   sonarNota(RE, CORCHEA, true, false);
   sonarNota(DO, NEGRA, true, false);
-
 }
 //--------------------------------------------------------
 
 //FUNCIONES SENSORES--------------------------------------
-// Función para leer la distancia con el sensor ultrasonico
+// Funcion para leer la distancia con el sensor ultrasonico
 void leerSensorUltrasonico() {
-  // Envía un pulso ultrasónico
+  // Envia un pulso ultrasónico
   digitalWrite(TRIG_PIN, LOW);
   delayMicroseconds(2);
   digitalWrite(TRIG_PIN, HIGH);
@@ -173,30 +169,26 @@ void leerSensorUltrasonico() {
   digitalWrite(TRIG_PIN, LOW);
   
   // Calcula el tiempo que tarda el eco
-  long duration = pulseIn(ECHO_PIN, HIGH);
+  long duracion = pulseIn(ECHO_PIN, HIGH);
   
   // Calcula la distancia en metros
-  float distance = (duration * 0.0343) / 2; // Conversión a metros
+  float distance = (duracion * 0.0343) / 2; // Conversion a metros
   
   // Imprime la distancia en metros
   Serial.print(distance, 2); // 2 decimales de precisión
 }
 //Funcion para leer la temp y humedad
 void leerSensorDHT() {
-  float humidity = dht.readHumidity();
-  float temperature = dht.readTemperature();  // en grados Celsius
+  float humedad = dht.readHumidity();
+  float temperatura = dht.readTemperature();  // en grados Celsius
 
   Serial.print("---");
-  Serial.print(temperature);
+  Serial.print(temperatura);
   Serial.print("---");
-  Serial.print(humidity);
+  Serial.print(humedad);
   Serial.println("---");
-  delay(1000);
 }
 //--------------------------------------------------------
-
-
-
 
 
 
@@ -212,21 +204,20 @@ void setup() {
   pinMode(ECHO_PIN, INPUT);
 }
 
+
+
 void loop() {
   if (Serial.available() > 0) {
     String input = Serial.readStringUntil('\n');
     input.trim();
 
     if (input == "wm") {
-      delay(3200);
       WELLERMAN();
-    }
-    else {
-      Serial.println("stop");
     }
   }
 
   //Se lee la distancia, temperatura y humedad
   leerSensorUltrasonico();
   leerSensorDHT();
+  delay(1000);
 }

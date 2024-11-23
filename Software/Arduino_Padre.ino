@@ -5,10 +5,10 @@ bool CAMINAR_ADELANTE = false;
 bool CAMINAR_ATRAS = false;
 bool CAMINAR_DERECHA = false;
 bool CAMINAR_IZQUIERDA = false;
+bool STOP = false;
 
 bool WELLERMAN_MOMENT = false;
 //----------------------------
-
 
 int VELOCIDAD_PATAS = 20;
 
@@ -47,8 +47,7 @@ Servo up_5;
 Servo rot_6;
 Servo up_6;
 
-void DEF_POS() {
-  
+void POS_INICIAL() {
   rot_1.write(90);
   up_1.write(70);
 
@@ -87,7 +86,106 @@ void DEF_POS() {
   
   delay(1000);
 }
+void DEF_POS() { 
+  int retardoPaso = 20; //Demora para no destruir los servos en un movimiento brusco
 
+  //Levanto patas 1, 3 y 5 para ubicarlas
+  for (int i = pos_up_1; i < 140; i += 1) { //pos_up_1 es la pata directora
+    pos_up_1 ++;
+    pos_up_3 ++;
+    pos_up_5 --;
+    up_1.write(pos_up_1);
+    up_3.write(pos_up_3);
+    up_5.write(pos_up_5);
+    delay(retardoPaso);
+  }
+  //Ubico la pata 1
+  for (int angulo = rot_1.read(); angulo != 90; angulo += (90 > rot_1.read() ? 1 : -1)) {
+    rot_1.write(angulo);
+    delay(retardoPaso);
+  }
+  for (int angulo = up_1.read(); angulo != 70; angulo += (70 > up_1.read() ? 1 : -1)) {
+    up_1.write(angulo);
+    delay(retardoPaso);
+  }
+  //Ubico la pata 3
+  for (int angulo = rot_3.read(); angulo != 90; angulo += (90 > rot_3.read() ? 1 : -1)) {
+    rot_3.write(angulo);
+    delay(retardoPaso);
+  }
+  for (int angulo = up_3.read(); angulo != 70; angulo += (70 > up_3.read() ? 1 : -1)) {
+    up_3.write(angulo);
+    delay(retardoPaso);
+  }
+  //Ubico la pata 5
+  for (int angulo = rot_5.read(); angulo != 90; angulo += (90 > rot_5.read() ? 1 : -1)) {
+    rot_5.write(angulo);
+    delay(retardoPaso);
+  }
+  for (int angulo = up_5.read(); angulo != 110; angulo += (110 > up_5.read() ? 1 : -1)) {
+    up_5.write(angulo);
+    delay(retardoPaso);
+  }
+
+  //Levanto patas 2, 4 y 6 para ubicarlas
+  for (int i = pos_up_2; i < 140; i += 1) { // pos_up_2 es la pata directora
+    pos_up_2 ++;
+    pos_up_4 --;
+    pos_up_6 --;
+    up_2.write(pos_up_2);
+    up_4.write(pos_up_4);
+    up_6.write(pos_up_6);
+    delay(retardoPaso);
+  }
+  //Ubico la pata 2
+  for (int angulo = rot_2.read(); angulo != 90; angulo += (90 > rot_2.read() ? 1 : -1)) {
+    rot_2.write(angulo);
+    delay(retardoPaso);
+  }
+  for (int angulo = up_2.read(); angulo != 70; angulo += (70 > up_2.read() ? 1 : -1)) {
+    up_2.write(angulo);
+    delay(retardoPaso);
+  }
+  //Ubico la pata 4
+  for (int angulo = rot_4.read(); angulo != 90; angulo += (90 > rot_4.read() ? 1 : -1)) {
+    rot_4.write(angulo);
+    delay(retardoPaso);
+  }
+  for (int angulo = up_4.read(); angulo != 110; angulo += (110 > up_4.read() ? 1 : -1)) {
+    up_4.write(angulo);
+    delay(retardoPaso);
+  }
+  //Ubico la pata 6
+  for (int angulo = rot_6.read(); angulo != 90; angulo += (90 > rot_6.read() ? 1 : -1)) {
+    rot_6.write(angulo);
+    delay(retardoPaso);
+  }
+  for (int angulo = up_6.read(); angulo != 110; angulo += (110 > up_6.read() ? 1 : -1)) {
+    up_6.write(angulo);
+    delay(retardoPaso);
+  }
+
+  //Actualizo las variables de posicion
+  pos_rot_1 = 90;
+  pos_up_1 = 70;
+
+  pos_rot_2 = 90;
+  pos_up_2 = 70;
+
+  pos_rot_3 = 90;
+  pos_up_3 = 70;
+
+  pos_rot_4 = 90;
+  pos_up_4 = 110;
+
+  pos_rot_5 = 90;
+  pos_up_5 = 110;
+
+  pos_rot_6 = 90;
+  pos_up_6 = 110;
+}
+
+//---------------------------------------------------------------------------------------
 void setup()
 {
   rot_1.attach(2, 500, 2500);
@@ -103,10 +201,11 @@ void setup()
   rot_6.attach(12, 500, 2500);
   up_6.attach(13, 500, 2500);
   
-  DEF_POS();
+  POS_INICIAL();
   
   Serial.begin(9600);
 }
+//---------------------------------------------------------------------------------------
 
 void CAMINAR() {
   //Levanta grupo 1
@@ -412,59 +511,6 @@ void DERECHA() {
     delay(VELOCIDAD_PATAS);
   }
 }
-void WELLERMAN() {
-  DEF_POS();
-  int VELOCIDAD_ZAPATEO = 6;
-  //Levanta grupo 1
-  for (int i = 0; i < 20; i += 1) {
-    for (int i = pos_up_1; i < 140; i += 1) { //pos_up_1 es la pata directora
-      pos_up_1 ++;
-      pos_up_3 ++;
-      pos_up_5 --;
-      up_1.write(pos_up_1);
-      up_3.write(pos_up_3);
-      up_5.write(pos_up_5);
-      delay(VELOCIDAD_ZAPATEO);
-    }
-    //Baja grupo 1
-    for (int i = pos_up_1; i > 90; i -= 1) {
-      pos_up_1 --;
-      pos_up_3 --;
-      pos_up_5 ++;
-      up_1.write(pos_up_1);
-      up_3.write(pos_up_3);
-      up_5.write(pos_up_5);
-      delay(VELOCIDAD_ZAPATEO);
-    }
-    //Levanta grupo 2
-    for (int i = pos_up_2; i < 140; i += 1) { // pos_up_2 es la pata directora
-      pos_up_2 ++;
-      pos_up_4 --;
-      pos_up_6 --;
-      up_2.write(pos_up_2);
-      up_4.write(pos_up_4);
-      up_6.write(pos_up_6);
-      delay(VELOCIDAD_ZAPATEO);
-    }
-    //Baja grupo 2
-    for (int i = pos_up_2; i > 90; i -= 1) { // pos_up_2 es la pata directora
-      pos_up_2 --;
-      pos_up_4 ++;
-      pos_up_6 ++;
-      up_2.write(pos_up_2);
-      up_4.write(pos_up_4);
-      up_6.write(pos_up_6);
-      delay(VELOCIDAD_ZAPATEO);
-    }
-  }
-  // Resetea las variables
-  Serial.println("stop");
-  CAMINAR_ADELANTE = false;
-  CAMINAR_ATRAS = false;
-  CAMINAR_IZQUIERDA = false;
-  CAMINAR_DERECHA = false;
-  WELLERMAN_MOMENT = false;
-}
 
 void loop()
 {
@@ -477,6 +523,7 @@ void loop()
       CAMINAR_ATRAS = false;
       CAMINAR_IZQUIERDA = false;
       CAMINAR_DERECHA = false;
+      STOP = false;
       WELLERMAN_MOMENT = false;
     }
     else if (input == "at") {
@@ -485,6 +532,7 @@ void loop()
       CAMINAR_ADELANTE = false;
       CAMINAR_IZQUIERDA = false;
       CAMINAR_DERECHA = false;
+      STOP = false;
       WELLERMAN_MOMENT = false;
     }
     else if (input == "iz") {
@@ -493,6 +541,7 @@ void loop()
       CAMINAR_ADELANTE = false;
       CAMINAR_ATRAS = false;
       CAMINAR_DERECHA = false;
+      STOP = false;
       WELLERMAN_MOMENT = false;
     }
     else if (input == "de") {
@@ -501,20 +550,23 @@ void loop()
       CAMINAR_ADELANTE = false;
       CAMINAR_ATRAS = false;
       CAMINAR_IZQUIERDA = false;
+      STOP = false;
       WELLERMAN_MOMENT = false;
     }
     else if (input == "wm") {
-      Serial.println("wm");
       WELLERMAN_MOMENT = true;
 
       CAMINAR_DERECHA = false;
       CAMINAR_ADELANTE = false;
       CAMINAR_ATRAS = false;
+      STOP = false;
       CAMINAR_IZQUIERDA = false;
     }
     else if (input == "stop"){
       // Resetea las variables
       Serial.println("stop");
+      STOP = true;
+
       CAMINAR_ADELANTE = false;
       CAMINAR_ATRAS = false;
       CAMINAR_IZQUIERDA = false;
@@ -536,13 +588,11 @@ void loop()
     IZQUIERDA();
   }
   else if (WELLERMAN_MOMENT) {
-    WELLERMAN();
+    Serial.println("wm"); // Envio la senial para que comience la musica
+    WELLERMAN_MOMENT = false;
   }
-  else {
+  else if (STOP){
     DEF_POS();
+    STOP = false;
   }
 }
-
-
-
-
